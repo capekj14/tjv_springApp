@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'cz.cvut.fit.tjv.capekj14'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+	implementation 'org.postgresql:postgresql:42.3.1'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.6'
+	implementation 'org.springframework:spring-core:5.3.13'
+	implementation 'org.springframework:spring-context:5.3.13'
+	implementation 'org.springframework:spring-beans:5.3.13'
+	runtimeOnly 'org.xerial:sqlite-jdbc:3.36.0.3'
+
+}
+
+test {
+	useJUnitPlatform()
+}
