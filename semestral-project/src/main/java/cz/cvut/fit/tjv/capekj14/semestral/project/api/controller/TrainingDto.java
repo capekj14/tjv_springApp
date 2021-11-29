@@ -5,11 +5,11 @@ import java.util.Objects;
 
 public class TrainingDto {
 
-    public String idTraining;
+    public Integer idTraining;
     public int hours;
     public LocalDateTime start;
 
-    public TrainingDto(String idTraining, int hours, LocalDateTime start) {
+    public TrainingDto(Integer idTraining, int hours, LocalDateTime start) {
         this.idTraining = idTraining;
         this.hours = hours;
         this.start = start;
@@ -18,11 +18,11 @@ public class TrainingDto {
     public TrainingDto() {
     }
 
-    public String getIdTraining() {
+    public Integer getIdTraining() {
         return idTraining;
     }
 
-    public void setIdTraining(String idTraining) {
+    public void setIdTraining(Integer idTraining) {
         this.idTraining = idTraining;
     }
 

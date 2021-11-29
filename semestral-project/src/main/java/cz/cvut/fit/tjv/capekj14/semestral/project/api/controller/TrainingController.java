@@ -14,6 +14,10 @@ public class TrainingController {
 
     TrainingService service;
 
+    public TrainingController(TrainingService service) {
+        this.service = service;
+    }
+
     @GetMapping("/trainings")
     Collection<TrainingDto> getAllTrainings() {
 
@@ -21,14 +25,14 @@ public class TrainingController {
     }
 
     @GetMapping("/trainings/{id}")
-    TrainingDto getOneTraining(@PathVariable String id) {
+    TrainingDto getOneTraining(@PathVariable Integer id) {
 
         return TrainingConverter.toDto(service.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Training not found")));
     }
 
     @PutMapping("/trainings/{id}")
-    TrainingDto updateTraining(@RequestBody TrainingDto trainingDto, @PathVariable String id){
+    TrainingDto updateTraining(@RequestBody TrainingDto trainingDto, @PathVariable Integer id){
         service.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Training not found"));
         try{
@@ -41,7 +45,7 @@ public class TrainingController {
     }
 
     @DeleteMapping("/trainings/{id}")
-    void deleteTraining(@PathVariable String id) {
+    void deleteTraining(@PathVariable Integer id) {
         service.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Training not found"));
         return;

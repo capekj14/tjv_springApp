@@ -9,7 +9,8 @@ import java.util.Objects;
 public class Training {
 
     @Id
-    public String idTraining;
+    @GeneratedValue
+    public Integer idTraining;
 
     public int hours;
 
@@ -20,7 +21,7 @@ public class Training {
     @ManyToMany
     public Collection<Player> players;
 
-    public Training(String idTraining, int hours, LocalDateTime start) {
+    public Training(Integer idTraining, int hours, LocalDateTime start) {
         this.idTraining = idTraining;
         this.hours = hours;
         this.start = start;
@@ -29,11 +30,11 @@ public class Training {
     public Training() {
     }
 
-    public String getIdTraining() {
+    public Integer getIdTraining() {
         return idTraining;
     }
 
-    public void setIdTraining(String idTraining) {
+    public void setIdTraining(Integer idTraining) {
         this.idTraining = idTraining;
     }
 

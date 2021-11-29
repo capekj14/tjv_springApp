@@ -1,6 +1,7 @@
 package cz.cvut.fit.tjv.capekj14.semestral.project.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Collection;
@@ -10,7 +11,9 @@ import java.util.Objects;
 public class Player {
 
     @Id
-    public String idPlayer;
+    @GeneratedValue
+    public Integer idPlayer;
+
     public String name;
     public String surname;
     public int rating;
@@ -18,7 +21,7 @@ public class Player {
     @ManyToMany
     public Collection<Training> trainings;
 
-    public Player(String idPlayer, String name, String surname, int rating) {
+    public Player(Integer idPlayer, String name, String surname, int rating) {
         this.idPlayer = idPlayer;
         this.name = name;
         this.surname = surname;
@@ -28,11 +31,11 @@ public class Player {
     public Player() {
     }
 
-    public String getIdPlayer() {
+    public Integer getIdPlayer() {
         return idPlayer;
     }
 
-    public void setIdPlayer(String idPlayer) {
+    public void setIdPlayer(Integer idPlayer) {
         this.idPlayer = idPlayer;
     }
 

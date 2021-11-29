@@ -14,20 +14,24 @@ public class PlayerController {
 
     PlayerService service;
 
+    public PlayerController(PlayerService service) {
+        this.service = service;
+    }
+
     @GetMapping("/players")
     Collection<PlayerDto> getAllPlayers() {
         return PlayerConverter.toManyDtos(service.findAll());
     }
 
     @GetMapping("/players/{id}")
-    PlayerDto getOnePlayer(@PathVariable String id){
+    PlayerDto getOnePlayer(@PathVariable Integer id){
 
         return PlayerConverter.toDto(service.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Player not found")));
     }
 
     @PutMapping("/players/{id}")
-    PlayerDto updatePlayer(@RequestBody PlayerDto playerDto, @PathVariable String id) {
+    PlayerDto updatePlayer(@RequestBody PlayerDto playerDto, @PathVariable Integer id) {
         service.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Player not found"));
         try{
@@ -40,7 +44,7 @@ public class PlayerController {
     }
 
     @DeleteMapping("/players/{id}")
-    void deletePlayer(@PathVariable String id) {
+    void deletePlayer(@PathVariable Integer id) {
         service.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,
                 "Player not found"));
         service.deleteById(id);
