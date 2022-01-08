@@ -42,15 +42,6 @@ public class Court {
         this.number = number;
     }
 
-    /*
-    public Collection<Training> getTrainings() {
-        return trainings;
-    }
-
-    public void setTrainings(Collection<Training> trainings) {
-        this.trainings = trainings;
-    }
-    */
 
     @Override
     public boolean equals(Object o) {
