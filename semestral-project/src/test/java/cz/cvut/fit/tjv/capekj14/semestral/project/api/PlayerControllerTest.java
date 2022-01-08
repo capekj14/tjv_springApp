@@ -43,8 +43,8 @@ public class PlayerControllerTest {
         mockMvc.perform(get("/players"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", Matchers.hasSize(2)))
-                .andExpect(jsonPath("$[0].idPlayer", Matchers.is("158")))
-                .andExpect(jsonPath("$[1].idPlayer", Matchers.is("898")));
+                .andExpect(jsonPath("$[0].idPlayer", Matchers.is(158)))
+                .andExpect(jsonPath("$[1].idPlayer", Matchers.is(898)));
     }
 
     @Test
