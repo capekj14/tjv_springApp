@@ -1,38 +1,25 @@
-package cz.cvut.fit.tjv.capekj14.semestral.project.domain;
+package client.dto;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.Objects;
 
-@Entity(name = "Training_tjv")
-public class Training {
+public class TrainingDto {
 
-    @Id
-    @GeneratedValue
     public Integer idTraining;
-
     public int hours;
-
     public LocalDateTime start;
 
-    @ManyToOne
-    public Court court;
-    @ManyToMany
-    public Collection<Player> players;
-
-    public Training(Integer idTraining, int hours, LocalDateTime start) {
+    public TrainingDto(Integer idTraining, int hours, LocalDateTime start) {
         this.idTraining = idTraining;
         this.hours = hours;
         this.start = start;
     }
 
-    public Training(Integer idTraining, int hours) {
+    public TrainingDto(Integer idTraining) {
         this.idTraining = idTraining;
-        this.hours = hours;
     }
 
-    public Training() {
+    public TrainingDto() {
     }
 
     public Integer getIdTraining() {
@@ -59,27 +46,25 @@ public class Training {
         this.start = start;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Training training = (Training) o;
-        return hours == training.hours && Objects.equals(idTraining, training.idTraining) && Objects.equals(start, training.start) && Objects.equals(court, training.court);
+        TrainingDto that = (TrainingDto) o;
+        return hours == that.hours && Objects.equals(idTraining, that.idTraining) && Objects.equals(start, that.start);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idTraining, hours, start, court);
+        return Objects.hash(idTraining, hours, start);
     }
 
     @Override
     public String toString() {
-        return "Training{" +
+        return "TrainingDto{" +
                 "idTraining='" + idTraining + '\'' +
                 ", hours=" + hours +
                 ", start=" + start +
-                ", court=" + court +
                 '}';
     }
 }

@@ -6,7 +6,7 @@ plugins {
 
 group = 'cz.cvut.fit.tjv.capekj14'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = "15"
 
 repositories {
 	mavenCentral()
@@ -27,3 +27,4 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+targetCompatibility = JavaVersion.VERSION_15

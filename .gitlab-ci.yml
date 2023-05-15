@@ -1,0 +1,8 @@
+build:
+  stage: build
+  image: gradle:jdk16
+  script:
+    - cd semestral-project/
+    - gradle build
+    - cd ../demo
+    - gradle build
